@@ -1,0 +1,9 @@
+{
+    "scripts": {
+      "heroku-postbuild": "cd clientapp && npm install"
+    },
+    "engines": {
+      "node": "12.18.3",
+      "npm": "6.14.6"
+    }
+  }
