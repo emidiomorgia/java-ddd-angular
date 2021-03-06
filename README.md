@@ -4,6 +4,9 @@
 
 java-ddd-angular is a project demonstrating a monolithic java, spring, domain driven design back-end running with angular front-end. It also demonstrates deploy on Heroku with postgres, testing with Travis CI.
 
+## Online demo
+https://java-ddd-angular.herokuapp.com/
+
 ## Features
 TBD
 
