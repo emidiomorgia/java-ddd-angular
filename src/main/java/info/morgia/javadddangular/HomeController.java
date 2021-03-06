@@ -22,7 +22,7 @@ public class HomeController {
         @Transactional
         @GetMapping("writeValues")
         public String writeValues(){
-                Value v=new Value();
+                DemoValue v=new DemoValue();
                 v.setIntValue(10);
                 v.setStringValue("ten");
                 entityManager.persist(v);
