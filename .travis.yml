@@ -5,6 +5,24 @@ matrix:
         - openjdk11
       before_install:
         - chmod +x mvnw
+      branches:
+        only:
+          - main
       script:
         - mvn test
         - mvn clean package
+    - language: node_js
+      node_js:
+        - lts/*
+      dist: trusty
+      sudo: required
+      branches:
+        only:
+          - main
+      before_script:
+        - cd clientapp
+        - npm install -g @angular/cli
+        - npm install
+      script:
+        - ng build
+        - npm run test-headless
