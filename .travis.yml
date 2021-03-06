@@ -1,0 +1,10 @@
+matrix:
+  include:
+    - language: java
+      jdk:
+        - openjdk11
+      before_install:
+        - chmod +x mvnw
+      script:
+        - mvn test
+        - mvn clean package
