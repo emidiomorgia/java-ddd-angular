@@ -30,36 +30,6 @@ describe('RegisterComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call signupButtonClicked when clicked', fakeAsync(()=>{
-
-      spyOn(component, 'signupButtonClicked');
-
-      let button = fixture.debugElement.nativeElement.querySelector('#signupButton');
-      button.click();
-      tick();
-      expect(component.signupButtonClicked).toHaveBeenCalled();
-  }));
-
-  describe('inputEmail', ()=>{
-    it(' should not have is-invalid class at startup', ()=>{
-      let inputEmail : HTMLInputElement = fixture.debugElement.nativeElement.querySelector('#inputEmail');
-      expect(inputEmail.classList.contains('is-invalid')).toBeFalsy();
-    });
-
-    it('should have is-invalid class when empty or null', fakeAsync(()=>{
-      let inputEmail : any = queryDebugElement('#inputEmail');
-      let button = fixture.debugElement.nativeElement.querySelector('#signupButton');
-      fixture.detectChanges();
-      inputEmail.value='email';
-      inputEmail.triggerEventHandler('input', { target: inputEmail.nativeElement });
-
-      button.click();
-      tick();
-      expect(inputEmail.classList.contains('is-invalid')).toBeTruthy();
-  
-
-    }));
-  });
 
   describe('signupButtonClicked', ()=>{
     it('should set emailErrorVisible to true when null or empty',()=>{
@@ -81,12 +51,26 @@ describe('RegisterComponent', () => {
       expect(component.emailErrorVisible).toBeFalsy();
     });
 
+    it('should set passwordErrorVisible to true when null or empty',()=>{
+      component.passwordErrorVisible=false;
+      component.password=null;
+      component.signupButtonClicked();
+      expect(component.passwordErrorVisible).toBeTruthy();
+
+      component.passwordErrorVisible=false;
+      component.password='';
+      component.signupButtonClicked();
+      expect(component.passwordErrorVisible).toBeTruthy();
+    });
+
     it('should set passwordErrorVisible to false when not (null or empty)',()=>{
       component.passwordErrorVisible=false;
       component.password='password';
       component.signupButtonClicked();
       expect(component.passwordErrorVisible).toBeFalsy();
     });
+
+
   });
 
 });
