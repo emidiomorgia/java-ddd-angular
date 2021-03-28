@@ -8,6 +8,9 @@ import { PublicComponent } from './layouts/public/public.component';
 import { SecureComponent } from './layouts/secure/secure.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PublicComponent,
     SecureComponent,
     LoginComponent,
-    HomeComponent
-  ],
+    HomeComponent,
+    RegisterComponent
+
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    RouterModule,
+    NgbModule,
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

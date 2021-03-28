@@ -5,16 +5,18 @@ import { HomeComponent } from './home/home.component';
 import { PublicComponent } from './layouts/public/public.component';
 import { SecureComponent } from './layouts/secure/secure.component';
 import { DefaultGuard } from './shared/default-guard';
+import { RegisterComponent } from './register/register.component';
 
 
 const PUBLIC_ROUTES: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 const SECURE_ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent, canActivate: [DefaultGuard] }
 ];
 
 const APP_ROUTES: Routes = [
